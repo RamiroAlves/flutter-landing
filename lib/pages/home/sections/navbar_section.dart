@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_landing/widgets/logo_widget.dart';
 
+import 'package:flutter_landing/widgets/primary_button.dart';
+
 class NavbarSection extends StatelessWidget {
   const NavbarSection({super.key});
 
@@ -27,7 +29,7 @@ class NavbarSection extends StatelessWidget {
 
           const SizedBox(width: 24),
 
-          ElevatedButton(onPressed: () {}, child: const Text("Get Started"))
+          PrimaryButton(text: "Começar", onPressed: () {}),
         ],
       ),
     );
