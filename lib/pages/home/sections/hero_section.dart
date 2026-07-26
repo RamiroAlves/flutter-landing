@@ -13,11 +13,24 @@ class HeroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 80),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.background,
+            Color(0xFF0E1428),
+          ],
+        ),
+      ),
       child: const Row(
         children: [
           Expanded(
             child: HeroContent(),
           ),
+
+          const SizedBox(width: 0),
+
           Expanded(
             child: HeroImage(),
           )
