@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_landing/core/responsive/breakpoints.dart';
 
 import 'package:flutter_landing/core/theme/app_colors.dart';
 import 'package:flutter_landing/core/theme/app_text_styles.dart';
@@ -11,6 +12,9 @@ class HeroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final isMobile = width < Breakpints.mobile;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 80),
       decoration: const BoxDecoration(
@@ -23,19 +27,25 @@ class HeroSection extends StatelessWidget {
           ],
         ),
       ),
-      child: const Row(
-        children: [
-          Expanded(
-            child: HeroContent(),
-          ),
-
-          const SizedBox(width: 0),
-
-          Expanded(
-            child: HeroImage(),
-          )
-        ],
-      ),
+      child: isMobile
+          ? const Column(
+              children: [
+                HeroContent(),
+                SizedBox(height: 48),
+                HeroImage(),
+              ],
+            )
+          : const Row(
+              children: [
+                Expanded(
+                  child: HeroContent(),
+                ),
+                SizedBox(width: 60),
+                Expanded(
+                  child: HeroImage(),
+                )
+              ],
+            ),
     );
   }
 }
